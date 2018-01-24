@@ -16,10 +16,10 @@ let fakeServerData = {
       },
       {
         name: 'Dance  Mix',
-        songs: [{name:'Freeze', duration: 1345}, {name:'Lollipop', duration: 1236}, {name:'Trolls Dance', duration: 1405}]
+        songs: [{name:'Freeze Song', duration: 1345}, {name:'Lollipop', duration: 1236}, {name:'Trolls Dance', duration: 1405}]
       },
       {
-        name: 'Christmas',
+        name: 'Christmas Mix',
         songs: [{name:'Jingle Bells', duration: 1345}, {name:'O Holy Night', duration: 1236}, {name:'All I Want For Christmas', duration: 1405}]
       },
       {
@@ -70,11 +70,16 @@ class Filter extends Component {
 
 class Playlist extends Component {
   render() {
+    let playlist = this.props.playlist
     return (
       <div style={{...defaultStyle, display: 'inline-block', width: "25%"}}>
         <img/>
-        <h3>Playlist Name </h3>
-        <ul><li>Song 1</li><li>Song 2</li><li>Song 3</li></ul>        
+        <h3>{playlist.name} </h3>
+        <ul>
+          {playlist.songs.map(song =>
+            <li>{song.name}</li>
+          )}
+        </ul>        
       </div>
     );
   }
@@ -104,10 +109,9 @@ class App extends Component {
           <PlaylistCounter playlists= {this.state.serverData.user.playlists}/>
           <HoursCounter playlists= {this.state.serverData.user.playlists}/>
           <Filter/>
-          <Playlist/>
-          <Playlist/>
-          <Playlist/>
-          <Playlist/>
+          {this.state.serverData.user.playlists.map(playlist =>  //Map - Using to transform one array to another object array
+            <Playlist playlist={playlist}/> 
+          )}
         </div> : <h1 style={defaultStyle}>Loading...</h1>
         }
       </div>
