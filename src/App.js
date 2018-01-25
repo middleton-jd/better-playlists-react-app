@@ -15,7 +15,7 @@ let fakeServerData = {
         songs: [{name:'Song 1', duration: 1345}, {name:'Song 2', duration: 1236}, {name:'Song 3', duration: 1405}]
       },
       {
-        name: 'Dance  Mix',
+        name: 'Dance Mix',
         songs: [{name:'Freeze Song', duration: 1345}, {name:'Lollipop', duration: 1236}, {name:'Trolls Dance', duration: 1405}]
       },
       {
